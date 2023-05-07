@@ -64,7 +64,7 @@ class SpringBootWithS3ApplicationTests {
         System.setProperty("spring.cloud.aws.s3.region", "eu-central-1");
         System.setProperty("spring.cloud.aws.credentials.access-key", "none");
         System.setProperty("spring.cloud.aws.credentials.secret-key", "none");
-        System.setProperty("spring.cloud.aws.credentials.instance-profile", "false");
+        // needed to set this, for the GitHub pipeline to succeed.
         System.setProperty("spring.cloud.aws.region.static", "eu-central-1");
 
     }
