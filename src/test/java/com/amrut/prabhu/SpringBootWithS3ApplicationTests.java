@@ -65,6 +65,7 @@ class SpringBootWithS3ApplicationTests {
         System.setProperty("spring.cloud.aws.credentials.access-key", "none");
         System.setProperty("spring.cloud.aws.credentials.secret-key", "none");
         System.setProperty("spring.cloud.aws.credentials.instance-profile", "false");
+        System.setProperty("spring.cloud.aws.region.static", "eu-central-1");
 
     }
 
