@@ -50,14 +50,14 @@ class SpringBootWithS3ApplicationTests {
     }
 
     @Test
-    void contextLoads() throws Exception {
+    void putAndFetchFileFromS3() throws Exception {
 
         String data = """
                         {
                         "name" : "amrut"
                         }
                         """;
-        //Given
+
         Assertions.assertThat(s3SampleFile.exists()).isFalse();
 
         mockMvc.perform(MockMvcRequestBuilders.post("/data")
