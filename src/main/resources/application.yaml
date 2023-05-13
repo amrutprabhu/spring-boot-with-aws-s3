@@ -8,6 +8,8 @@ spring:
       credentials:
         access-key: none
         secret-key: none
+      region:
+        static: eu-central-1
 
 #        profile:
 #          name: ltest
