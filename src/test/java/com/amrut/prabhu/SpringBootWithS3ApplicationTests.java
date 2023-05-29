@@ -1,6 +1,5 @@
 package com.amrut.prabhu;
 
-import org.assertj.core.api.Assertions;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -19,6 +18,8 @@ import org.testcontainers.utility.DockerImageName;
 import org.testcontainers.utility.MountableFile;
 
 import java.io.IOException;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @Testcontainers
 @SpringBootTest
@@ -58,7 +59,7 @@ class SpringBootWithS3ApplicationTests {
                         }
                         """;
 
-        Assertions.assertThat(s3SampleFile.exists()).isFalse();
+        assertThat(s3SampleFile.exists()).isFalse();
 
         mockMvc.perform(MockMvcRequestBuilders.post("/data")
                 .content(data))
@@ -69,6 +70,7 @@ class SpringBootWithS3ApplicationTests {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.name", Matchers.is("amrut")));
 
+        assertThat(s3SampleFile.exists()).isTrue();
     }
 
 }
